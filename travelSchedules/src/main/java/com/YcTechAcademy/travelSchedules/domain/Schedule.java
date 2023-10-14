@@ -1,12 +1,15 @@
 package com.YcTechAcademy.travelSchedules.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 public class Schedule {
     @Id
     @GeneratedValue
@@ -17,7 +20,7 @@ public class Schedule {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    private LocalDateTime travelDate; //여행날짜
+    private LocalDate travelDate; //여행날짜
 
     private String destination; //여행지명
 
