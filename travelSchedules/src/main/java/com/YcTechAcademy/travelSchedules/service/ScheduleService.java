@@ -2,6 +2,7 @@ package com.YcTechAcademy.travelSchedules.service;
 
 import com.YcTechAcademy.travelSchedules.domain.Schedule;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class ScheduleService {
         return null;
     }
 
-    public void updateSchedule(Long id, LocalDateTime travelDate, String destination, String formDestination) {
+    public void updateSchedule(Long id, LocalDate travelDate, String destination, String formDestination) {
 
     }
 
