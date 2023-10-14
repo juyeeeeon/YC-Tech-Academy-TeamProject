@@ -10,13 +10,14 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("schedules")
 public class ScheduleController {
     private final ScheduleService scheduleService;
 
     /**
      * 전체 여행일정표 조회
      */
-    @GetMapping("/schedules")
+    @GetMapping
     public String findAllSchedules(Model model) {
         List<Schedule> schedules = scheduleService.findAllSchedules();
         model.addAttribute("schedules", schedules);
@@ -26,7 +27,7 @@ public class ScheduleController {
     /**
      * 여행 일정 저장화면 조회
      */
-    @GetMapping("/schedules/new")
+    @GetMapping("/new")
     public String createScheduleForm(Model model) {
         model.addAttribute("scheduleForm", new ScheduleForm());
         return "schedules/createScheduleForm";
@@ -35,7 +36,7 @@ public class ScheduleController {
     /**
      * 여행 일정 저장(생성)
      */
-    @PostMapping("/schedules/new")
+    @PostMapping("/new")
     public String createSchedule(ScheduleForm form) {
 
         Schedule schedule = new Schedule();
@@ -52,7 +53,7 @@ public class ScheduleController {
     /**
      * 특정 여행일정 조회
      */
-    @GetMapping("/schedules/{id}")
+    @GetMapping("/{id}")
     public String findSchedule(@PathVariable Long id, Model model) {
         Schedule schedule = scheduleService.findSchedule(id);
 
@@ -62,7 +63,7 @@ public class ScheduleController {
     /**
      * 특정 여행일정 수정
      */
-    @PostMapping("/schedules/{id}/edit")
+    @PostMapping("/{id}/edit")
     public String updateSchedule(@PathVariable Long id, @ModelAttribute("form") ScheduleForm form) {
 
         scheduleService.updateSchedule(id, form.getTravelDate(), form.getDestination(), form.getDestination());
@@ -73,7 +74,7 @@ public class ScheduleController {
     /**
      * 특정 여행일정 삭제
      */
-    @DeleteMapping("/schedules/{id}")
+    @DeleteMapping("/{id}")
     public String deleteSchedule(@PathVariable Long id) {
         scheduleService.deleteSchedule(id);
 
