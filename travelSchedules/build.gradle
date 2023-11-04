@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.16'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'com.google.cloud.tools.jib' version '3.4.0'      // <--- plugin 추가
 }
 
 group = 'com.YcTechAcademy'
@@ -33,4 +34,19 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+jib {
+	from {
+		image = 'openjdk:17-alpine'
+	}
+	to {
+		image = '297606574770.dkr.ecr.ap-northeast-2.amazonaws.com/travel:latest'
+		credHelper = 'ecr-login'
+		tags = ['latest']
+	}
+	container {
+		jvmFlags = ['-Xms512m']
+		format = 'OCI'
+	}
 }
