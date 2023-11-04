@@ -3,8 +3,10 @@ package com.YcTechAcademy.travelSchedules.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 
 @Embeddable
 @Getter
