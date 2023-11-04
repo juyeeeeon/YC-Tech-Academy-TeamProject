@@ -29,11 +29,12 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-    
+    - name: change directory
+      run: cd travelSchedules
     - name: Grant execute permission for gradlew
-      run: chmod +x travelSchedules/gradlew
+      run: chmod +x gradlew
 
     - name: Build and Push Docker Image
       run: |
         ls
-        ./travelSchedules/gradlew jib -Djib.to.image=${{ secrets.ECR_URL }} -Pversion=${{ github.event.inputs.server_version }}
+        ./gradlew jib -Djib.to.image=${{ secrets.ECR_URL }} -Pversion=${{ github.event.inputs.server_version }}
