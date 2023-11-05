@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: dev
+    include: oauth
+
+  freemarker:
+    template-loader-path: classpath:/templates
+    suffix: .ftl
+    content-type: text/html
+    charset: UTF-8
+    enabled: true
+
+#  datasource:
+#    url: jdbc:h2:tcp://localhost/~/travelSchedules
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+
+jwt:
+  secret: fpvuvttzKZKGmQ3UoD0QpU7oSDAmCKb8X6l78RULm1Rm01R5Itcg5C8Q9me5sffF
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+#        #        show_sql: true
+#        format_sql: true
+#        default_batch_fetch_size: 100
+#
+##    open-in-view: false
+#
+#logging:
+#  level:
+#    org.hibernate.SQL: debug
+##    org.hibernate.type: trace
