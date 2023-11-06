@@ -45,6 +45,7 @@ public class ScheduleService {
     public void deleteSchedule(Long id) {
         Schedule schedule = scheduleRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("여행 계획이 존재하지 않습니다."));
+
         scheduleRepository.delete(schedule);
     }
 }

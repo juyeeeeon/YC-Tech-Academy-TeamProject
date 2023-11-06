@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: header" />
+
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+
+    <form th:action="@{/schedules/new}" th:object="${scheduleForm}" method="post">
+
+        <div class="form-group">
+            <label th:for="travelDate">여행날짜</label>
+            <input type="date" th:field="*{travelDate}" class="form-control" placeholder="여행날짜를 입력하세요">
+        </div>
+
+        <div class="form-group">
+            <label th:for="destination">여행지명</label>
+            <input type="text" th:field="*{destination}" class="form-control" placeholder="여행지명을 입력하세요">
+        </div>
+
+        <div class="form-group">
+            <label th:for="comment">설명</label>
+            <input type="text" th:field="*{comment}" class="form-control" placeholder="설명을 입력하세요">
+        </div>
+
+        <div class="form-group">
+            <label th:for="visitStatus">상태</label>
+            <input type="text" th:field="*{visitStatus}" class="form-control" placeholder="상태를 입력하세요">
+        </div>
+
+        <div class="form-group">
+            <label th:for="writer">작성자</label>
+            <input type="text" th:field="*{writer}" class="form-control"
+                   placeholder="작성자를 입력하세요">
+        </div>
+
+        <div class="form-group">
+            <label th:for="writeDate">작성날짜</label>
+            <input type="date" th:field="*{writeDate}" class="form-control"
+                   placeholder="작성날짜를 입력하세요">
+        </div>
+
+        <button type="submit" class="btn btn-primary">저장하기</button>
+
+    </form>
+    <br/>
+
+    <div th:replace="fragments/footer :: footer" />
+
+</div> <!-- /container -->
+</body>
+</html>

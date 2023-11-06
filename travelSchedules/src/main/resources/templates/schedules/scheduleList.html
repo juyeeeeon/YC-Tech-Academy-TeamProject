@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="fragments/header :: header" />
+
+
+
+
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Google Map</title>
+    </head>
+
+    <body>
+    <div id="map" style="width:50%; height: 50vh;"></div>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbYFdTB38e3hOOAf9sg0ewQJivYs541eI&callback=initMap&region=kr"></script>
+    <script>
+    window.initMap = function () {
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 37.5400456, lng: 126.9921017 },
+        zoom: 10
+      });
+
+      const malls = [
+        { label: "C", name: "코엑스몰", lat: 37.5115557, lng: 127.0595261 },
+        { label: "G", name: "고투몰", lat: 37.5062379, lng: 127.0050378 },
+        { label: "D", name: "동대문시장", lat: 37.566596, lng: 127.007702 },
+        { label: "I", name: "IFC몰", lat: 37.5251644, lng: 126.9255491 },
+        { label: "L", name: "롯데월드타워몰", lat: 37.5125585, lng: 127.1025353 },
+        { label: "M", name: "명동지하상가", lat: 37.563692, lng: 126.9822107 },
+        { label: "T", name: "타임스퀘어", lat: 37.5173108, lng: 126.9033793 }
+      ];
+
+      const bounds = new google.maps.LatLngBounds();
+      const infoWindow = new google.maps.InfoWindow();
+
+      malls.forEach(({ label, name, lat, lng }) => {
+        const marker = new google.maps.Marker({
+          position: { lat, lng },
+          label,
+          map
+        });
+        bounds.extend(marker.position);
+
+        marker.addListener("click", () => {
+          map.panTo(marker.position);
+          infoWindow.setContent(name);
+          infoWindow.open({
+            anchor: marker,
+            map
+          });
+        });
+      });
+
+      map.fitBounds(bounds);
+    };
+    </script>
+    </body>
+
+    <div>
+        <a href="#" th:href="@{/schedules/new}"
+           class="btn btn-primary" role="button">등록</a>
+    </div>
+    <div>
+        <table class="table table-striped">
+
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>여행날짜</th>
+                <th>여행지명</th>
+                <th>설명</th>
+                <th>상태</th>
+                <th>작성자</th>
+                <th>작성날짜</th>
+                <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr th:each="schedule : ${schedules}">
+                <td th:text="${schedule.id}"></td>
+                <td th:text="${schedule.travelDate}"></td>
+                <td th:text="${schedule.destination}"></td>
+                <td th:text="${schedule.comment}"></td>
+                <td th:text="${schedule.visitStatus}"></td>
+                <td th:text="${schedule.writer}"></td>
+                <td th:text="${schedule.writeDate}"></td>
+                <td>
+                    <a href="#" th:href="@{/schedules/{id}/edit (id=${schedule.id})}"
+                       class="btn btn-primary" role="button">수정</a>
+                </td>
+            </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"/>
+
+</div> <!-- /container -->
+</body>
+</html>

@@ -4,12 +4,13 @@ import com.YcTechAcademy.travelSchedules.schedule.domain.Schedule;
 import com.YcTechAcademy.travelSchedules.schedule.dto.ScheduleForm;
 import com.YcTechAcademy.travelSchedules.schedule.service.ScheduleService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequiredArgsConstructor
 @RequestMapping("/schedules")
 public class ScheduleController {
@@ -67,6 +68,27 @@ public class ScheduleController {
     }
 
     /**
+     * 특정 여행일정 수정화면 조회
+     */
+    @GetMapping("/{id}/edit")
+    public String updateScheduleForm(@PathVariable Long id, Model model) {
+
+        Schedule schedule = scheduleService.findSchedule(id);
+
+        ScheduleForm scheduleForm = new ScheduleForm();
+        scheduleForm.setTravelDate(schedule.getTravelDate());
+        scheduleForm.setDestination(schedule.getDestination());
+        scheduleForm.setComment(schedule.getComment());
+        scheduleForm.setVisitStatus(schedule.getVisitStatus());
+        scheduleForm.setWriter(schedule.getWriter());
+        scheduleForm.setWriteDate(schedule.getWriteDate());
+
+        model.addAttribute("scheduleForm", scheduleForm);
+
+        return "schedules/updateScheduleForm";
+    }
+
+    /**
      * 특정 여행일정 수정
      */
     @PostMapping("/{id}/edit")
@@ -80,7 +102,7 @@ public class ScheduleController {
     /**
      * 특정 여행일정 삭제
      */
-    @DeleteMapping("/{id}")
+    @GetMapping("/{id}/delete")
     public String deleteSchedule(@PathVariable Long id) {
         scheduleService.deleteSchedule(id);
 

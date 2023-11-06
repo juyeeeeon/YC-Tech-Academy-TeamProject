@@ -21,20 +21,24 @@ public class Schedule {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    private LocalDate travelDate; //여행날짜
+//    private LocalDate travelDate; //여행날짜
+    private String travelDate; //여행날짜
 
     private String destination; //여행지명
 
     private String comment; //설명
 
-    @Enumerated(EnumType.STRING)
+    /*@Enumerated(EnumType.STRING)
     private VisitStatus visitStatus; //상태 [NOT_VISITED], [VISITED]
+    */
+    private String visitStatus; //상태 [NOT_VISITED], [VISITED]
 
     private String writer; //작성자
 
-    private LocalDateTime writeDate; //작성날짜
+//    private LocalDateTime writeDate; //작성날짜
+    private String writeDate; //작성날짜
 
-    public void update(LocalDate travelDate, String destination, String comment, VisitStatus visitStatus, String writer, LocalDateTime writeDate) {
+    public void update(String travelDate, String destination, String comment, String visitStatus, String writer, String writeDate) {
         this.travelDate = travelDate;
         this.destination = destination;
         this.comment = comment;
