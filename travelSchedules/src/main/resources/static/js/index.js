@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	$.ajax({
-        url: "/posts"
+        url: "/schedules"
     }).then(function(data) {
     	$.each(data.data, function(index, e) {
 			console.log(e);

@@ -60,7 +60,7 @@
 
 <nav class="navbar navbar-expand-lg fixed-top">
 	<div class="container">
-		<a class="navbar-brand" href="/">Kwikker</a>
+		<a class="navbar-brand" href="/">여행 일정 도우미</a>
 		<#if member??>
 		<div class="row">
 			<button class="btn btn-secondary mx-3" id="create_btn" data-toggle="modal"
@@ -69,8 +69,8 @@
 		</div>
 		<#else>
 		<div class="row">
-			<a href="/signup"><button class="btn btn-secondary mr-3" id="header_signup_btn">Sign Up</button></a>
-			<a href="/login"><button class="btn btn-secondary" id="header_login_btn">Login</button></a>
+			<a href="/signup"><button class="btn btn-secondary mr-3" id="header_signup_btn">회원가입</button></a>
+			<a href="/login"><button class="btn btn-secondary" id="header_login_btn">로그인</button></a>
 		</div>
 		</#if>
 	</div>

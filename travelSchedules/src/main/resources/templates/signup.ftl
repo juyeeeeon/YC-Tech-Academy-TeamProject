@@ -89,7 +89,7 @@ body {
 	<div class="container login-container">
             <div class="row">
                 <div class="col-md-6 login-form-1">
-                    <h3>Sign Up</h3>
+                    <h3>회원가입</h3>
                     <form>
                         <div class="form-group">
                             <input type="text" id="signup_username" class="form-control" placeholder="Username *" value="" />
@@ -98,7 +98,7 @@ body {
                             <input type="password" id="signup_password" class="form-control" placeholder="Password *" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="submit" id="signup_btn" class="btnSubmit" value="Signup" />
+                            <input type="submit" id="signup_btn" class="btnSubmit" value="가입하기" />
                         </div>
                     </form>
                 </div>
