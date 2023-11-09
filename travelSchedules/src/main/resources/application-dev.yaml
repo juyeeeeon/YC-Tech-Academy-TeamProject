@@ -12,7 +12,7 @@ spring:
         ddl-auto: create
       properties:
         hibernate:
-          #        show_sql: true
+          show_sql: true
           format_sql: true
           default_batch_fetch_size: 100
 
@@ -29,31 +29,3 @@ spring:
     username: sa
     password:
     driver-class-name: org.h2.Driver
-
-
-#  jpa:
-#    hibernate:
-#      dialect: org.hibernate.dialect.H2Dialect
-#      ddl-auto: update
-#    show-sql: true
-#    format-sql: true
-#    properties:
-#      hibernate:
-#        format_sql: true
-#        show_sql: true
-#    defer-datasource-initialization: true
-#
-#  h2:
-#    console:
-#      enabled: true
-
-#springdoc:
-#  packages-to-scan:
-#    - com.msa.post.controller
-#  default-consumes-media-type: application/json;charset=UTF-8
-#  default-produces-media-type: application/json;charset=UTF-8
-#  swagger-ui:
-#    path: /
-#    disable-swagger-default-url: true
-#    display-request-duration: true
-#    operations-sorter: alpha

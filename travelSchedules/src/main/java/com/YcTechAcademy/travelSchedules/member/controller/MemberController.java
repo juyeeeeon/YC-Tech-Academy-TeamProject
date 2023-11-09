@@ -2,20 +2,12 @@ package com.YcTechAcademy.travelSchedules.member.controller;
 
 import com.YcTechAcademy.travelSchedules.member.domain.Address;
 import com.YcTechAcademy.travelSchedules.member.domain.Member;
-import com.YcTechAcademy.travelSchedules.member.dto.LoginDto;
 import com.YcTechAcademy.travelSchedules.member.dto.MemberForm;
-import com.YcTechAcademy.travelSchedules.member.dto.ResultDto;
-import com.YcTechAcademy.travelSchedules.member.dto.SignupDto;
 import com.YcTechAcademy.travelSchedules.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseCookie;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import static org.springframework.http.HttpHeaders.SET_COOKIE;
 
 import java.util.List;
 
@@ -25,6 +17,8 @@ import java.util.List;
 public class MemberController {
 
     private final MemberService memberService;
+
+
 
     /*
      * 회원목록 조회

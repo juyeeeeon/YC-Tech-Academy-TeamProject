@@ -44,10 +44,10 @@
              placeholder="작성날짜를 입력하세요">
     </div>
 
-    <button type="submit" class="btn btn-primary">수정하기</button>
+    <button type="submit" class="btn btn-primary btn-block">수정하기</button>
 
     <a href="#" th:href="@{/schedules/{id}/delete (id=${id})}"
-       class="btn btn-primary" role="button" >삭제하기</a>
+       class="btn btn-danger btn-block" role="button" >삭제하기</a>
 
   </form>
   <div th:replace="fragments/footer :: footer" />
