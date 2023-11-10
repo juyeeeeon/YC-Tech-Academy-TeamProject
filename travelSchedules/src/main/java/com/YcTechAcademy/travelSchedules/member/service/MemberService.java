@@ -47,6 +47,7 @@ public class MemberService {
         return member.getId();
     }
 
+    @Transactional
     public Member addUser(String userName, String email, String password) {
         Member member = new Member(userName, email, passwordEncoder.encode(password),
                 Set.of("USER"));

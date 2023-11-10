@@ -8,24 +8,17 @@ logging:
 
 spring:
   jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.H2Dialect
+      ddl-auto: create
+    show-sql: true
+    format-sql: true
+    properties:
       hibernate:
-        ddl-auto: create
-      properties:
-        hibernate:
-          show_sql: true
-          format_sql: true
-          default_batch_fetch_size: 100
+        format_sql: true
+        show_sql: true
+    defer-datasource-initialization: true
 
-  #    open-in-view: false
-
-  logging:
-    level:
-      org.hibernate.SQL: debug
-  #    org.hibernate.type: trace
-
-
-  datasource:
-    url: jdbc:h2:tcp://localhost/~/travelSchedules
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true

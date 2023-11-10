@@ -31,18 +31,24 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.httpBasic().disable()
-                .csrf().disable()
+                .csrf().disable()// csrf 방지
+
+                //Form Login
                 .formLogin().disable()
                 .headers().frameOptions().sameOrigin()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                .antMatchers("/", "/login", "/signup", "/members/auth/**",
-                        "/h2-console/**")
-                .permitAll()
+
+                .antMatchers("/", "/login", "/signup", "/members/auth/**", "/h2-console/**")
+                .permitAll() //antMatchers 설정한 리소스의 접근을 인증절차 없이 허용
+
                 .anyRequest().authenticated()
+
                 .and()
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+
+                //Oauth2 Login
                 .oauth2Login()
                 .loginPage("/login")
                 .defaultSuccessUrl("/")

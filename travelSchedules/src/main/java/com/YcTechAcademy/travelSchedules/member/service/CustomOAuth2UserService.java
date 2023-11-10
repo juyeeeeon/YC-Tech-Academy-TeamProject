@@ -52,7 +52,6 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         }
         return new DefaultOAuth2User(
                 Collections.singleton(new SimpleGrantedAuthority("ROLE_USER")),
-                memberAttribute, "email"
-        );
+                memberAttribute, "email");
     }
 }
