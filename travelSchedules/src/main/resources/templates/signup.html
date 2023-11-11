@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
 <html lang="en">
 <head>
 
@@ -82,7 +84,7 @@ body {
 </style>
 </head>
 <body>
-
+<div th:replace="fragments/bodyHeader :: bodyHeader"/>
 <div class="container login-container">
     <div class="row">
         <div class="col-md-6 login-form-1">
@@ -116,5 +118,6 @@ body {
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 <script src="/js/signup.js"></script>
+<div th:replace="fragments/footer :: footer"/>
 </body>
 </html>

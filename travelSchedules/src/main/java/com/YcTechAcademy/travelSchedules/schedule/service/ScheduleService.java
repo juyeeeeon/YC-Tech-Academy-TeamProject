@@ -4,6 +4,8 @@ import com.YcTechAcademy.travelSchedules.schedule.domain.Schedule;
 import com.YcTechAcademy.travelSchedules.schedule.dto.ScheduleForm;
 import com.YcTechAcademy.travelSchedules.schedule.repository.ScheduleRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,4 +50,5 @@ public class ScheduleService {
 
         scheduleRepository.delete(schedule);
     }
+
 }

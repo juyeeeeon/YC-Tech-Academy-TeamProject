@@ -14,6 +14,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -56,7 +59,20 @@ public class SecurityConfig {
                 .userInfoEndpoint()
                 .userService(customOAuth2UserService);
 
+        //logout
+        http.logout(logout -> logout.logoutUrl("/logout")
+                        .logoutSuccessUrl("/")
+                        .addLogoutHandler((request, response, auth) -> {
+            for (Cookie cookie : request.getCookies()) {
+                String cookieName = cookie.getName();
+                Cookie cookieToDelete = new Cookie(cookieName, null);
+                cookieToDelete.setMaxAge(0);
+                response.addCookie(cookieToDelete);
+            }
+        })
+                );
         return http.build();
+
 
 
 
