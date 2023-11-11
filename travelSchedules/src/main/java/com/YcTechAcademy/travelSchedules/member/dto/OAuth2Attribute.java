@@ -38,6 +38,8 @@ public class OAuth2Attribute {
     }
 
     public Map<String, Object> convert2Map() {
-        return new HashMap<>(Map.of("id", attributeKey, "key", attributeKey, "provider", provider));
+        return new HashMap<>(Map.of("id", attributeKey, "key", attributeKey,
+                    "email", email,
+                "provider", provider));
     }
 }
