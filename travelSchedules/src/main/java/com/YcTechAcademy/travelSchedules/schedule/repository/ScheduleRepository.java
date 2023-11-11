@@ -6,4 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
+    /**
+     * 검색
+     */
+    Page<Schedule> findByDestinationContaining(String searchKeyword, Pageable pageable);
 }

@@ -67,6 +67,11 @@
            class="btn btn-primary btn-block" role="button">등록</a>
     </div>
 
+    <form th:action="@{/schedules}" method="get">
+        <input type="text" name="searchKeyword">
+        <button type="submit">검색</button>
+    </form>
+
     <div>
         <table class="table table-striped">
 
@@ -102,6 +107,16 @@
             </tbody>
 
         </table>
+
+        <th:block th:each= "page : ${#numbers.sequence(startPage, endPage)}">
+            <!--검색기능-4-->
+            <a th:if="${page != nowPage}"
+               th:href="@{/schedules(page = ${page -1}, searchKeyword = ${param.searchKeyword})}"
+               th:text="${page}">
+            </a>
+
+            <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+        </th:block>
     </div>
 
     <div th:replace="fragments/footer :: footer"/>

@@ -18,8 +18,8 @@ public class ScheduleService {
 
     private final ScheduleRepository scheduleRepository;
 
-    public List<Schedule> findAllSchedules() {
-        return scheduleRepository.findAll();
+    public Page<Schedule> findAllSchedules(Pageable pageable) {
+        return scheduleRepository.findAll(pageable);
     }
 
     @Transactional
@@ -51,4 +51,9 @@ public class ScheduleService {
         scheduleRepository.delete(schedule);
     }
 
+    /*검색기능-2*/
+    //검색
+    public Page<Schedule> scheduleSearchList(String searchKeyword, Pageable pageable){
+        return scheduleRepository.findByDestinationContaining(searchKeyword, pageable);
+    }
 }
