@@ -33,17 +33,14 @@ public class Schedule {
     */
     private String visitStatus; //상태 [NOT_VISITED], [VISITED]
 
-    private String writer; //작성자
-
 //    private LocalDateTime writeDate; //작성날짜
     private String writeDate; //작성날짜
 
-    public void update(String travelDate, String destination, String comment, String visitStatus, String writer, String writeDate) {
+    public void update(String travelDate, String destination, String comment, String visitStatus, String writeDate) {
         this.travelDate = travelDate;
         this.destination = destination;
         this.comment = comment;
         this.visitStatus = visitStatus;
-        this.writer = writer;
         this.writeDate = writeDate;
     }
 
