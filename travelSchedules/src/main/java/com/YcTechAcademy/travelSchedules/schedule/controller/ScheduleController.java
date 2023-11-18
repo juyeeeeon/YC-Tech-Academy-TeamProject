@@ -61,9 +61,9 @@ public class ScheduleController {
     @GetMapping("/{id}")
     public String findSchedule(@PathVariable Long id, Model model) {
         Schedule schedule = scheduleService.findSchedule(id);
-        model.addAttribute("scheduleForm", schedule);
+        model.addAttribute("schedule", schedule);
 
-        return "schedules/findScheduleForm";
+        return "schedules/schedule";
     }
 
     /**
@@ -92,6 +92,7 @@ public class ScheduleController {
         schedule.setComment(form.getComment());
         schedule.setVisitStatus(form.getVisitStatus());
         schedule.setWriteDate(form.getWriteDate());
+        schedule.setLocations(form.getLocations());
 
         scheduleService.join(schedule);
 
@@ -112,6 +113,7 @@ public class ScheduleController {
         scheduleForm.setComment(schedule.getComment());
         scheduleForm.setVisitStatus(schedule.getVisitStatus());
         scheduleForm.setWriteDate(schedule.getWriteDate());
+        scheduleForm.setLocations(schedule.getLocations());
 
         model.addAttribute("scheduleForm", scheduleForm);
 
@@ -130,7 +132,7 @@ public class ScheduleController {
 
         scheduleService.updateSchedule(id, form);
 
-        return "redirect:/schedules";
+        return "redirect:/schedules/{id}";
     }
 
     /**
