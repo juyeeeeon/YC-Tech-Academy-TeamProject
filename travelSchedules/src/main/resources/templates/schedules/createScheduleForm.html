@@ -3,6 +3,13 @@
 
 <head th:replace="fragments/header :: header" />
 
+<style>
+    .field-error {
+        border-color: red;
+        color : red;
+    }
+</style>
+
 <body>
 <div class="container">
     <div th:replace="fragments/bodyHeader :: bodyHeader"/>
@@ -11,12 +18,16 @@
 
         <div class="form-group">
             <label th:for="travelDate">여행날짜</label>
-            <input type="date" th:field="*{travelDate}" class="form-control" placeholder="여행날짜를 입력하세요">
+            <input type="date" th:field="*{travelDate}" class="form-control" placeholder="여행날짜를 입력하세요"
+                   th:errorclass="field-error">
+            <p class="field-error" th:errors="*{travelDate}">Incorrect Data</p>
         </div>
 
         <div class="form-group">
             <label th:for="destination">여행지명</label>
-            <input type="text" th:field="*{destination}" class="form-control" placeholder="여행지명을 입력하세요">
+            <input type="text" th:field="*{destination}" class="form-control" placeholder="여행지명을 입력하세요"
+                   th:errorclass="field-error">
+            <p class="field-error" th:errors="*{destination}">Incorrect Data</p>
         </div>
 
         <div class="form-group">
@@ -27,12 +38,6 @@
         <div class="form-group">
             <label th:for="visitStatus">상태</label>
             <input type="text" th:field="*{visitStatus}" class="form-control" placeholder="상태를 입력하세요">
-        </div>
-
-        <div class="form-group">
-            <label th:for="writer">작성자</label>
-            <input type="text" th:field="*{writer}" class="form-control"
-                   placeholder="작성자를 입력하세요">
         </div>
 
         <div class="form-group">

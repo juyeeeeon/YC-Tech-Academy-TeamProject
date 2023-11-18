@@ -39,7 +39,7 @@ public class ScheduleService {
                 .orElseThrow(() -> new IllegalArgumentException("여행 계획이 존재하지 않습니다."));
 
         schedule.update(scheduleForm.getTravelDate(), scheduleForm.getDestination(), scheduleForm.getComment(),
-                scheduleForm.getVisitStatus(), scheduleForm.getWriter(), scheduleForm.getWriteDate());
+                scheduleForm.getVisitStatus(), scheduleForm.getWriteDate());
 
     }
 

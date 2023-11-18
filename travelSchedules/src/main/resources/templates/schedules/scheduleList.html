@@ -82,7 +82,6 @@
                 <th>여행지명</th>
                 <th>설명</th>
                 <th>상태</th>
-                <th>작성자</th>
                 <th>작성날짜</th>
                 <th></th>
             </tr>
@@ -96,7 +95,6 @@
                 <td th:text="${schedule.destination}"></td>
                 <td th:text="${schedule.comment}"></td>
                 <td th:text="${schedule.visitStatus}"></td>
-                <td th:text="${schedule.writer}"></td>
                 <td th:text="${schedule.writeDate}"></td>
                 <td>
                     <a href="#" th:href="@{/schedules/{id}/edit (id=${schedule.id})}"

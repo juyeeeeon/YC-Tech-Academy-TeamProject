@@ -10,8 +10,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -26,7 +29,7 @@ public class ScheduleController {
      */
     @GetMapping
     public String findAllSchedules(Model model,
-                                   @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                                   @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
                                    String searchKeyword) {
 
         /*검색기능-3*/
@@ -76,7 +79,11 @@ public class ScheduleController {
      * 여행 일정 저장(생성)
      */
     @PostMapping("/new")
-    public String createSchedule(ScheduleForm form) {
+    public String createSchedule(@Valid ScheduleForm form, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "schedules/createScheduleForm";
+        }
 
         Schedule schedule = new Schedule();
 
@@ -84,7 +91,6 @@ public class ScheduleController {
         schedule.setDestination(form.getDestination());
         schedule.setComment(form.getComment());
         schedule.setVisitStatus(form.getVisitStatus());
-        schedule.setWriter(form.getWriter());
         schedule.setWriteDate(form.getWriteDate());
 
         scheduleService.join(schedule);
@@ -105,7 +111,6 @@ public class ScheduleController {
         scheduleForm.setDestination(schedule.getDestination());
         scheduleForm.setComment(schedule.getComment());
         scheduleForm.setVisitStatus(schedule.getVisitStatus());
-        scheduleForm.setWriter(schedule.getWriter());
         scheduleForm.setWriteDate(schedule.getWriteDate());
 
         model.addAttribute("scheduleForm", scheduleForm);
@@ -117,7 +122,11 @@ public class ScheduleController {
      * 특정 여행일정 수정
      */
     @PostMapping("/{id}/edit")
-    public String updateSchedule(@PathVariable Long id, @ModelAttribute("form") ScheduleForm form) {
+    public String updateSchedule(@PathVariable Long id, @Valid @ModelAttribute("scheduleForm") ScheduleForm form, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "schedules/updateScheduleForm";
+        }
 
         scheduleService.updateSchedule(id, form);
 
