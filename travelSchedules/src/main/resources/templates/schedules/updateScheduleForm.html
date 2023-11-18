@@ -49,6 +49,12 @@
              placeholder="작성날짜를 입력하세요">
     </div>
 
+    <div class="form-group">
+      <label th:for="locations">위치 정보</label>
+      <input type="text" th:field="*{locations}" class="form-control"
+             placeholder="위치 정보를 입력하세요. (Ex: lat1,lng1:lat2,lng2,...)">
+    </div>
+
     <button type="submit" class="btn btn-primary btn-block">수정하기</button>
 
     <a href="#" th:href="@{/schedules/{id}/delete (id=${id})}"

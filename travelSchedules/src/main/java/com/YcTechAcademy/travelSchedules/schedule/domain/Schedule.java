@@ -36,12 +36,15 @@ public class Schedule {
 //    private LocalDateTime writeDate; //작성날짜
     private String writeDate; //작성날짜
 
-    public void update(String travelDate, String destination, String comment, String visitStatus, String writeDate) {
+    private String locations;   // 위치 정보 (lat1,lng1:lat2,lng2,...)
+
+    public void update(String travelDate, String destination, String comment, String visitStatus, String writeDate, String locations) {
         this.travelDate = travelDate;
         this.destination = destination;
         this.comment = comment;
         this.visitStatus = visitStatus;
         this.writeDate = writeDate;
+        this.locations = locations;
     }
 
     //연관관계메서드
