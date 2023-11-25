@@ -68,8 +68,8 @@
     </div>
 
     <form th:action="@{/schedules}" method="get">
-        <input type="text" name="searchKeyword">
-        <button type="submit">검색</button>
+        <input type="text" placeholder="검색어를 입력하세요." style="width: 91%;" name="searchKeyword">
+        <button class="btn btn-primary border border-white"  style="background-color: #F4623A;" type="submit">검색</button>
     </form>
 
     <div>
@@ -98,7 +98,7 @@
                 <td th:text="${schedule.writeDate}"></td>
                 <td>
                     <a href="#" th:href="@{/schedules/{id}/edit (id=${schedule.id})}"
-                       class="btn btn-primary" role="button">수정</a>
+                       class="btn btn-primary border border-white"  style="background-color: #F4623A;" role="button">수정</a>
                 </td>
             </tr>
 
