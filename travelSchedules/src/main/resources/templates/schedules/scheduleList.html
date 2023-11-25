@@ -8,7 +8,6 @@
 <body>
 <div class="container">
     <div th:replace="fragments/bodyHeader :: bodyHeader"/>
-    <a href="/logout" class="btn btn-primary btn-block" role="button"><h3 class="text-muted"><b>로그아웃</b></h3></a>
 
     <head>
         <meta charset="utf-8">
@@ -65,7 +64,7 @@
 
     <div>
         <a href="#" th:href="@{/schedules/new}"
-           class="btn btn-primary btn-block" role="button">등록</a>
+           class="btn btn-primary btn-block border border-white"  style="background-color: #F4623A;" role="button">등록</a>
     </div>
 
     <form th:action="@{/schedules}" method="get">

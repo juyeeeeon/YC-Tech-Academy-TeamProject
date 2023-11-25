@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/header :: header">
     <title>Hello</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
@@ -9,7 +8,6 @@
 <body style="background-image: url('https://cdn.pixabay.com/photo/2015/09/10/14/11/jeju-934479_1280.jpg')">
     <link rel="stylesheet" href="/css/styles.css">
     <header class="masthead">
-        <div th:replace="fragments/bodyHeader :: bodyHeader" />
 
         <div class="container px-4 px-lg-5 h-100">
             <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
@@ -23,7 +21,6 @@
                 </div>
             </div>
         </div>
-        <div th:replace="fragments/footer :: footer" />
     </header> <!-- /container -->
 </body>
 </html>
