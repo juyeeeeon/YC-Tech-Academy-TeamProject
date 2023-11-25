@@ -29,7 +29,7 @@ public class ScheduleController {
      */
     @GetMapping
     public String findAllSchedules(Model model,
-                                   @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
+                                   @PageableDefault(page = 0, size = 5, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
                                    String searchKeyword) {
 
         /*검색기능-3*/
@@ -44,7 +44,10 @@ public class ScheduleController {
 
         int nowPage = schedules.getPageable().getPageNumber() + 1; //pageable에서 넘어온 현재페이지를 가지고올수있다 * 0부터시작하니까 +1
         int startPage = Math.max(nowPage - 4, 1); //매개변수로 들어온 두 값을 비교해서 큰값을 반환
-        int endPage = Math.min(nowPage + 5, schedules.getTotalPages());
+        int endPage;
+        if (schedules.getTotalPages() == 0) {
+            endPage = Math.min(nowPage + 5, schedules.getTotalPages()+1);
+        }else endPage = Math.min(nowPage + 5, schedules.getTotalPages());
 
         //BoardService에서 만들어준 boardList가 반환되는데, list라는 이름으로 받아서 넘기겠다는 뜻
         model.addAttribute("schedules", schedules);
