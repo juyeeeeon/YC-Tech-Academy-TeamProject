@@ -108,12 +108,12 @@
 
         <th:block th:each= "page : ${#numbers.sequence(startPage, endPage)}">
             <!--검색기능-4-->
-            <a th:if="${page != nowPage}"
+            <a class="btn btn-lg btn-secondary" th:if="${page != nowPage}"
                th:href="@{/schedules(page = ${page -1}, searchKeyword = ${param.searchKeyword})}"
                th:text="${page}">
             </a>
 
-            <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+            <strong class="btn btn-lg btn-secondary" th:if="${page == nowPage}" th:text="${page}" style="color : #F4623A;"></strong>
         </th:block>
     </div>
 
