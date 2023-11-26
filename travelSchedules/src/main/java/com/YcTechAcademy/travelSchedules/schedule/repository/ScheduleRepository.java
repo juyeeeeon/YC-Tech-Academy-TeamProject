@@ -10,4 +10,6 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
      * 검색
      */
     Page<Schedule> findByDestinationContaining(String searchKeyword, Pageable pageable);
+
+    Page<Schedule> findAllByOrderByTravelDateAsc(Pageable pageable);
 }

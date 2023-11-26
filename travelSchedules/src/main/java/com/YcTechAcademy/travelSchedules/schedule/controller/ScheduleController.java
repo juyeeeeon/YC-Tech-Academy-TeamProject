@@ -94,7 +94,6 @@ public class ScheduleController {
         schedule.setDestination(form.getDestination());
         schedule.setComment(form.getComment());
         schedule.setVisitStatus(form.getVisitStatus());
-        schedule.setWriteDate(form.getWriteDate());
         schedule.setLocations(form.getLocations());
 
         scheduleService.join(schedule);
@@ -115,7 +114,7 @@ public class ScheduleController {
         scheduleForm.setDestination(schedule.getDestination());
         scheduleForm.setComment(schedule.getComment());
         scheduleForm.setVisitStatus(schedule.getVisitStatus());
-        scheduleForm.setWriteDate(schedule.getWriteDate());
+        scheduleForm.setUpdatedAt(schedule.getUpdatedAt());
         scheduleForm.setLocations(schedule.getLocations());
 
         model.addAttribute("scheduleForm", scheduleForm);
@@ -135,7 +134,7 @@ public class ScheduleController {
 
         scheduleService.updateSchedule(id, form);
 
-        return "redirect:/schedules/{id}";
+        return "redirect:/schedules";
     }
 
     /**
