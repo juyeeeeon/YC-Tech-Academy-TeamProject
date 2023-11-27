@@ -29,7 +29,8 @@ public class SecurityConfig {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         // 정적 자원에 대해서 Security를 적용하지 않음으로 설정
-        return web -> web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations()).anyRequest();
+        return web -> web.ignoring()
+                .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
