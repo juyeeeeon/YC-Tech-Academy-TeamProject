@@ -1,13 +1,29 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
-
-<head th:replace="fragments/header :: header" />
-
-
 <body>
+<link rel="stylesheet" href="/css/styles2.css">
+<div class="contain">
 <div class="container">
-    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="/schedules">Main</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/recommendation">RECOMMENDATION</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/schedules">About?</a></li>
+                </ul>
+                <form class="d-flex">
+                    <button class="btn btn-outline-dark" type="submit">
+                        <a class="nav-link" href="/logout">
+                        LOG OUT
+                        </a>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
 
     <head>
         <meta charset="utf-8">
@@ -60,18 +76,18 @@
 
     <div>
         <a href="#" th:href="@{/schedules/new}"
-           class="btn btn-primary btn-block border border-white"  style="background-color: #F4623A;" role="button">등록</a>
+           class="btn btn-info btn-block border border-white"  style="width: 100%;" role="button">등록</a>
     </div>
 
     <form th:action="@{/schedules}" method="get">
-        <input type="text" placeholder="검색어를 입력하세요." style="width: 91%;" name="searchKeyword">
-        <button class="btn btn-primary border border-white"  style="background-color: #F4623A;" type="submit">검색</button>
+        <input type="text" placeholder="여행지명을 통해 일정을 검색하세요." style="width: 95%;" name="searchKeyword">
+        <button class="btn btn-secondary border border-white" type="submit">검색</button>
     </form>
 
     <div>
         <table class="table table-striped">
 
-            <thead>
+            <thead class="table-secondary">
             <tr>
 <!--                <th>#</th>-->
                 <th>여행날짜</th>
@@ -83,7 +99,7 @@
             </tr>
             </thead>
 
-            <tbody>
+            <tbody class="table-light">
 
             <tr th:each="schedule : ${schedules}">
 <!--                <td th:text="${schedule.id}"></td>-->
@@ -94,7 +110,7 @@
                 <td th:text="${schedule.updatedAt}"></td>
                 <td>
                     <a href="#" th:href="@{/schedules/{id}/edit (id=${schedule.id})}"
-                       class="btn btn-primary border border-white"  style="background-color: #F4623A;" role="button">수정</a>
+                       class="btn btn-info border border-white" role="button">수정</a>
                 </td>
             </tr>
 
@@ -109,12 +125,12 @@
                th:text="${page}">
             </a>
 
-            <strong class="btn btn-sm btn-secondary" th:if="${page == nowPage}" th:text="${page}" style="color : #F4623A;"></strong>
+            <strong class="btn btn-sm btn-secondary" th:if="${page == nowPage}" th:text="${page}" style="color : #ffffff;"></strong>
         </th:block>
     </div>
 
     <div th:replace="fragments/footer :: footer"/>
-
+</div>
 </div> <!-- /container -->
 </body>
 </html>
