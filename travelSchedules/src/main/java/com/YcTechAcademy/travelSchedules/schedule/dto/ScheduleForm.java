@@ -24,7 +24,7 @@ public class ScheduleForm {
 
     private String visitStatus; //상태 [NOT_VISITED], [VISITED]
 
-    private String writeDate; //작성날짜
+    private LocalDate updatedAt; //작성날짜
 
     private String locations; // 위치 정보 (lat1,lng1:lat2,lng2,...)
 }

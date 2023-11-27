@@ -3,6 +3,8 @@ package com.YcTechAcademy.travelSchedules.schedule.domain;
 import com.YcTechAcademy.travelSchedules.member.domain.Member;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -33,17 +35,19 @@ public class Schedule {
     */
     private String visitStatus; //상태 [NOT_VISITED], [VISITED]
 
-//    private LocalDateTime writeDate; //작성날짜
-    private String writeDate; //작성날짜
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDate updatedAt;
 
     private String locations;   // 위치 정보 (lat1,lng1:lat2,lng2,...)
 
-    public void update(String travelDate, String destination, String comment, String visitStatus, String writeDate, String locations) {
+    public void update(String travelDate, String destination, String comment, String visitStatus, String locations) {
         this.travelDate = travelDate;
         this.destination = destination;
         this.comment = comment;
         this.visitStatus = visitStatus;
-        this.writeDate = writeDate;
         this.locations = locations;
     }
 

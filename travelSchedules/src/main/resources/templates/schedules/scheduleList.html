@@ -73,7 +73,7 @@
 
             <thead>
             <tr>
-                <th>#</th>
+<!--                <th>#</th>-->
                 <th>여행날짜</th>
                 <th>여행지명</th>
                 <th>설명</th>
@@ -86,12 +86,12 @@
             <tbody>
 
             <tr th:each="schedule : ${schedules}">
-                <td th:text="${schedule.id}"></td>
+<!--                <td th:text="${schedule.id}"></td>-->
                 <td th:text="${schedule.travelDate}"></td>
                 <td th:text="${schedule.destination}"></td>
                 <td th:text="${schedule.comment}"></td>
                 <td th:text="${schedule.visitStatus}"></td>
-                <td th:text="${schedule.writeDate}"></td>
+                <td th:text="${schedule.updatedAt}"></td>
                 <td>
                     <a href="#" th:href="@{/schedules/{id}/edit (id=${schedule.id})}"
                        class="btn btn-primary border border-white"  style="background-color: #F4623A;" role="button">수정</a>

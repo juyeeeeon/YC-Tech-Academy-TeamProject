@@ -19,7 +19,8 @@ public class ScheduleService {
     private final ScheduleRepository scheduleRepository;
 
     public Page<Schedule> findAllSchedules(Pageable pageable) {
-        return scheduleRepository.findAll(pageable);
+//        return scheduleRepository.findAll(pageable);
+        return scheduleRepository.findAllByOrderByTravelDateAsc(pageable);
     }
 
     @Transactional
@@ -39,7 +40,7 @@ public class ScheduleService {
                 .orElseThrow(() -> new IllegalArgumentException("여행 계획이 존재하지 않습니다."));
 
         schedule.update(scheduleForm.getTravelDate(), scheduleForm.getDestination(), scheduleForm.getComment(),
-                scheduleForm.getVisitStatus(), scheduleForm.getWriteDate(), scheduleForm.getLocations());
+                scheduleForm.getVisitStatus(), scheduleForm.getLocations());
 
     }
 
