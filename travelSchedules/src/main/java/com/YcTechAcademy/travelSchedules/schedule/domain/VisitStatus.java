@@ -1,7 +1,5 @@
 package com.YcTechAcademy.travelSchedules.schedule.domain;
 
-/*
 public enum VisitStatus {
-    NOT_VISITED, VISITED
+    방문예정, 방문완료
 }
-*/

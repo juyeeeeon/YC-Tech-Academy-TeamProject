@@ -23,17 +23,14 @@ public class Schedule {
     @JoinColumn(name = "member_id")
     private Member member;
 
-//    private LocalDate travelDate; //여행날짜
     private String travelDate; //여행날짜
 
     private String destination; //여행지명
 
     private String comment; //설명
 
-    /*@Enumerated(EnumType.STRING)
-    private VisitStatus visitStatus; //상태 [NOT_VISITED], [VISITED]
-    */
-    private String visitStatus; //상태 [NOT_VISITED], [VISITED]
+    @Enumerated(EnumType.STRING)
+    private VisitStatus visitStatus; //상태 [방문예정], [방문완료]
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -43,7 +40,7 @@ public class Schedule {
 
     private String locations;   // 위치 정보 (lat1,lng1:lat2,lng2,...)
 
-    public void update(String travelDate, String destination, String comment, String visitStatus, String locations) {
+    public void update(String travelDate, String destination, String comment, VisitStatus visitStatus, String locations) {
         this.travelDate = travelDate;
         this.destination = destination;
         this.comment = comment;
