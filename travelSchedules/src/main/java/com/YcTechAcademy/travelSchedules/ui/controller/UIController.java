@@ -31,4 +31,9 @@ public class UIController {
     public String getRecommendation() {
         return "recommendation";
     }
+
+    @GetMapping("/about")
+    public String getAbout() {
+        return "about";
+    }
 }
