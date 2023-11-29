@@ -15,10 +15,10 @@ public class LiveDataSourceConfig {
     public DataSource dataSource() {
         return DataSourceBuilder
                 .create()
-                .url("jdbc:h2:file:./db")
-                .driverClassName("org.h2.Driver")
-                .username("sa")
-                .password("password")
+                .url("jdbc:mysql://localhost:3306/travel_schedules?serverTimezone=Asia/Seoul")
+                .driverClassName("com.mysql.cj.jdbc.Driver")
+                .username("root")
+                .password("0000")
                 .build();
     }
 }
