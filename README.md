@@ -9,4 +9,4 @@
 
 [프로젝트 설계문서](https://github.com/juyeeeeon/YC-Tech-Academy-TeamProject/blob/live/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%84%A4%EA%B3%84%EB%AC%B8%EC%84%9C.md)  
 
-[프로젝트 최종발표](https://github.com/juyeeeeon/YC-Tech-Academy-TeamProject/blob/live/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/YC_%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EB%B0%9C%ED%91%9C.pdf)
+[프로젝트 최종발표](https://github.com/juyeeeeon/YC-Tech-Academy-TeamProject/blob/live/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/YC_%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C.pdf)
